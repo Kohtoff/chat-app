@@ -1,0 +1,17 @@
+@import './vars.scss';
+
+.divider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+    vertical-align: middle;
+    text-transform: uppercase;
+
+    & hr{
+        width: 100%;
+        background-color: $non-active;
+        // border: 1px solid black;
+    }
+}

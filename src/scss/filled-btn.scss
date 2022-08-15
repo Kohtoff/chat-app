@@ -1,0 +1,67 @@
+@import './vars.scss';
+
+.filled-btn {
+  border: none;
+  outline: none;
+  padding: 2% 5%;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+
+  //hover animation
+
+  animation-duration: 550ms;
+
+  @keyframes afterSlide {
+    from {
+      left: -75px;
+    }
+    to {
+      left: 125%;
+    }
+  }
+
+  &:after {
+    background: #fff;
+    content: '';
+    height: 155px;
+    left: -75px;
+    opacity: 0.2;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+    z-index: 1;
+  }
+
+  &:hover,
+  &:active {
+    &:after {
+      left: 120%;
+      transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+
+  &:focus {
+    &::after {
+      animation-iteration-count: infinite;
+      animation-name: afterSlide;
+      animation-duration: 1.5s;
+      animation-direction: alternate-reverse;
+    }
+  }
+
+  //color themes
+  &--positive {
+    background: $positive;
+    color: $white;
+  }
+
+  //size themes
+  &--mid {
+    width: 10rem;
+    height: 3rem;
+    font-size: large;
+  }
+}

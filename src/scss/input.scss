@@ -1,0 +1,55 @@
+@import './vars.scss';
+
+.input{
+    &__container{
+        position: relative;
+
+        &--fullWidth{
+            width: 100%
+        }
+    }
+
+    //hide controllers for input with type "number"
+    &[type=number]::-webkit-inner-spin-button,
+    &[type=number]::-webkit-outer-spin-button{
+        display: none;
+    }
+
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    padding-left: 4%;
+    font-size: $label;
+    border-bottom: 1px solid $div;
+    transition: 0.2s all ease-in;
+
+
+
+
+    &__floating-label{
+        transition: 0.2s all ease-in;
+        pointer-events: none;
+        position: absolute;
+        top: 20px;
+        left: 15px;
+        text-transform: uppercase;
+        font-weight: 800;
+    }
+
+    &:focus ~ &__floating-label,
+    &:not(:placeholder-shown):valid ~ &__floating-label{
+        top:0px;
+        left: 15px;
+        font-size: $floated-label;
+        color: $black;
+    }
+
+    &:focus{
+        border-bottom: 1px solid $black;
+    }
+
+
+}
