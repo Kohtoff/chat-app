@@ -1,0 +1,13 @@
+@import './vars.scss';
+
+.aside-top-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  background-color: $div;
+  padding: 15px;
+  font-size: $regular;
+  border-bottom: 1px solid $non-active;
+
+
+}

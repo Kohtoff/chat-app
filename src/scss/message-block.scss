@@ -1,0 +1,13 @@
+@import './vars.scss';
+
+.msg-block{
+    padding: 15px;
+
+    &__title{
+        margin-top: 45px;
+        margin-bottom: 75px;
+        color: $altTitle;
+        font-size: $h2;
+    }
+
+}

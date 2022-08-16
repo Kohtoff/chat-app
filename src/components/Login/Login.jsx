@@ -19,6 +19,7 @@ export default function Login() {
   const [signInWithFacebook] = useSignInWithFacebook(auth);
   const [user, loading, error] = useAuthState(auth);
 
+
   useEffect(() => {
     if (user && !(loading || error)) navigate('/chat', { replace: true });
   });
@@ -37,7 +38,7 @@ export default function Login() {
         </div>
       </form>
       <Divider>or</Divider>
-      <SocialNetworkBtn onClick={() => signInWithFacebook('', {})} variant={'facebook'} />
+      <SocialNetworkBtn onClick={() => signInWithFacebook('', {URL: 'https://reenbit-chat-2aea7.firebaseapp.com/__/auth/handler'})} variant={'facebook'} />
       <SocialNetworkBtn
         onClick={() => signInWithGoogle('', { prompt: 'select_account' })}
         variant={'gmail'}

@@ -10,6 +10,10 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+
+  @media (max-width: 1025px) {
+    width: 100%;
+  }
 }
 
 .login-form {
@@ -38,5 +42,14 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+
+    @media (max-width: 480px) {
+      flex-direction: column-reverse;
+      gap: 20px;
+
+      & button {
+        width: 100%;
+      }
+    }
   }
 }
