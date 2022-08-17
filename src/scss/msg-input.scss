@@ -1,0 +1,9 @@
+@import './vars.scss';
+
+.msg-input {
+  &__container {
+    padding: 30px;
+    background-color: $div;
+    height: 125px;
+  }
+}

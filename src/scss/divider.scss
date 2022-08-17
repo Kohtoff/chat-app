@@ -8,10 +8,12 @@
     gap: 5px;
     vertical-align: middle;
     text-transform: uppercase;
+    margin: 0;
+
+
 
     & hr{
         width: 100%;
         background-color: $non-active;
-        // border: 1px solid black;
     }
 }

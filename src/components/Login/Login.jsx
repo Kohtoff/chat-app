@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import '../../scss/login.scss';
 import Divider from '../UI/DividerWithText/DividerWithText';
 import FilledBtn from '../UI/FilledBtn/FilledBtn';
-import Input from '../UI/Input/Input';
+import Input from '../UI/FormInput/FormInput';
 import SocialNetworkBtn from '../UI/SocialNetworkBtn/SocialNetworkBtn';
 import {
   useSignInWithGoogle,

@@ -1,13 +1,19 @@
 @import './vars.scss';
 
-.msg-block{
-    padding: 15px;
+.msg-block {
 
-    &__title{
-        margin-top: 45px;
-        margin-bottom: 75px;
-        color: $altTitle;
-        font-size: $h2;
-    }
 
+  &__title {
+    margin-top: 45px;
+    margin-bottom: 75px;
+    color: $altTitle;
+    font-size: $h2;
+  }
+
+  & ul {
+    overflow: auto;
+    //TEMP SOLUTION
+    max-height: calc(100vh - 35vh);
+    scroll-behavior: smooth;
+  }
 }

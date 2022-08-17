@@ -9,25 +9,25 @@ export const contacts = [
     msgHistory: [
       {
         text: 'hehehe',
-        date: '',
+        date: new Date('2022-07-07'),
         time: '',
         isRead: true,
       },
       {
         text: 'Fine, thanks',
-        date: '',
+        date: new Date('2022-07-07'),
         time: '',
         isRead: true,
       },
       {
         text: 'How are you?',
-        date: '',
+        date: new Date('2022-07-07'),
         time: '',
         isRead: true,
       },
       {
         text: 'Hey',
-        date: '',
+        date: new Date('2022-07-07'),
         time: '',
         isRead: true,
       },
@@ -42,10 +42,10 @@ export const contacts = [
     isOnline: true,
     msgHistory: [
       {
-        text: '',
-        date: '',
+        text: 'Btw, is it dog?',
+        date: new Date('2022-07-07'),
         time: '',
-        isRead: '',
+        isRead: false,
       },
     ],
   },
@@ -59,7 +59,7 @@ export const contacts = [
     msgHistory: [
       {
         text: '',
-        date: '',
+        date: new Date('2022-07-07'),
         time: '',
         isRead: '',
       },
@@ -75,7 +75,7 @@ export const contacts = [
     msgHistory: [
       {
         text: '',
-        date: '',
+        date: new Date('2022-07-07'),
         time: '',
         isRead: '',
       },
@@ -91,7 +91,7 @@ export const contacts = [
     msgHistory: [
       {
         text: '',
-        date: '',
+        date: new Date('2022-07-07'),
         time: '',
         isRead: '',
       },
@@ -107,7 +107,7 @@ export const contacts = [
     msgHistory: [
       {
         text: '',
-        date: '',
+        date: new Date('2022-07-07'),
         time: '',
         isRead: '',
       },
@@ -123,10 +123,12 @@ export const contacts = [
     msgHistory: [
       {
         text: '',
-        date: '',
+        date: new Date('2022-07-07'),
         time: '',
         isRead: '',
       },
     ],
   },
 ];
+
+export const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

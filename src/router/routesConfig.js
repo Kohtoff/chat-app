@@ -6,7 +6,8 @@
 
 export const routesKeys = {
     login: 'login',
-    chat: 'chat'
+    chat: 'chat',
+    chatWith: 'chatWith'
 }
 
 export const routesConfig = [
@@ -21,7 +22,7 @@ export const routesConfig = [
         path: '/chat',
         title: 'Chat',
         isPrivate: true
-    }
+    },
 ]
 
 

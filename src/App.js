@@ -5,10 +5,14 @@ import { routesForRender } from './router/routesForRender';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './firebaseConfig';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import LoadingSpinner from './components/UI/LoadingSpinner/LoadingSpinner';
 
 function App() {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
+  if(loading){
+    return <LoadingSpinner />
+  }
   return (
     <div className="App">
       <Routes>

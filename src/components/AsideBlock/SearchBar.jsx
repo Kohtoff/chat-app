@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../scss/search-bar.scss'
+import '../../scss/input.scss'
 import SearchSvg from './SearchSvg';
 
 export default function SearchBar() {

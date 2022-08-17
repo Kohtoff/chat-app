@@ -7,6 +7,7 @@ import '../../scss/user-bar.scss'
 export default function UserBar() {
   const [{ reloadUserInfo: user }] = useAuthState(auth);
 
+
   return (
     <div className="user-bar">
       <div className="user-bar__avatar">

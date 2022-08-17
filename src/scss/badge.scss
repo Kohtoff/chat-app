@@ -1,0 +1,13 @@
+@import './vars.scss';
+
+.badge{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: absolute;
+    &--new-msg{
+        background: $link;
+        top: 50%;
+        right: 5%;
+    }
+}
