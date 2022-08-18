@@ -22,6 +22,10 @@
 
 .chat-field{
     flex-grow: 1;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 15px;
+    overflow: auto;
 }
 
 .chat-top-bar {
@@ -31,4 +35,5 @@
   width: 100%;
   background-color: $div;
   height: 80px;
+  border-bottom: 1px solid $non-active;
 }

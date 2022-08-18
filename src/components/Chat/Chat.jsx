@@ -7,7 +7,6 @@ export const SelectChatContext = createContext();
 
 export default function Chat() {
   const [activeChat, setActiveChat] = useState(null);
-  console.log(activeChat);
   return (
     <main className="chat">
       <SelectChatContext.Provider value={setActiveChat}>

@@ -8,27 +8,41 @@ export const contacts = [
     isOnline: false,
     msgHistory: [
       {
-        text: 'hehehe',
-        date: new Date('2022-07-07'),
-        time: '',
+        text: 'Hey',
+        date: new Date('2022-07-07T23:10:12'),
         isRead: true,
       },
       {
-        text: 'Fine, thanks',
-        date: new Date('2022-07-07'),
-        time: '',
+        text: 'Morning!',
+        isAuthor: true,
+        date: new Date('2022-07-07T23:10:22'),
         isRead: true,
       },
       {
         text: 'How are you?',
-        date: new Date('2022-07-07'),
-        time: '',
+        date: new Date('2022-07-07T23:10:51'),
         isRead: true,
       },
       {
-        text: 'Hey',
-        date: new Date('2022-07-07'),
-        time: '',
+        text: 'Fine) I`ve seen your work. Can you explain a few things later?',
+        date: new Date('2022-07-07T23:11:02'),
+        isRead: true,
+        isAuthor: true,
+      },
+      {
+        text: 'No problem)',
+        date: new Date('2022-07-07T23:11:32'),
+        isRead: true,
+      },
+      {
+        text: 'ty, sensei',
+        date: new Date('2022-07-07T23:12:00'),
+        isRead: true,
+        isAuthor: true,
+      },
+      {
+        text: 'hehehe',
+        date: new Date('2022-07-07T23:12:12'),
         isRead: true,
       },
     ],
@@ -43,10 +57,21 @@ export const contacts = [
     msgHistory: [
       {
         text: 'Btw, is it dog?',
-        date: new Date('2022-07-07'),
-        time: '',
+        date: new Date('2022-07-07T23:42:12'),
         isRead: false,
       },
+
+    ],
+  },
+  {
+    id: 8,
+    avatar: function () {
+      return this.id + '.jpeg';
+    },
+    username: 'Denis',
+    isOnline: true,
+    msgHistory: [
+
     ],
   },
   {
@@ -56,14 +81,7 @@ export const contacts = [
     },
     username: 'Victoriya',
     isOnline: true,
-    msgHistory: [
-      {
-        text: '',
-        date: new Date('2022-07-07'),
-        time: '',
-        isRead: '',
-      },
-    ],
+    msgHistory: [],
   },
   {
     id: 4,
@@ -74,10 +92,9 @@ export const contacts = [
     isOnline: false,
     msgHistory: [
       {
-        text: '',
-        date: new Date('2022-07-07'),
-        time: '',
-        isRead: '',
+        text: 'Pls, send me some extra info',
+        date: new Date('2022-07-07T23:10:12'),
+        isRead: true,
       },
     ],
   },
@@ -90,10 +107,9 @@ export const contacts = [
     isOnline: false,
     msgHistory: [
       {
-        text: '',
-        date: new Date('2022-07-07'),
-        time: '',
-        isRead: '',
+        text: 'I`d like to have pork right now xD',
+        date: new Date('2022-07-03T23:10:12'),
+        isRead: true
       },
     ],
   },
@@ -106,10 +122,9 @@ export const contacts = [
     isOnline: true,
     msgHistory: [
       {
-        text: '',
-        date: new Date('2022-07-07'),
-        time: '',
-        isRead: '',
+        text: 'See you later ;)',
+        date: new Date('2022-07-07T23:10:12'),
+        isRead: true,
       },
     ],
   },
@@ -120,15 +135,21 @@ export const contacts = [
     },
     username: 'Mykolay',
     isOnline: false,
-    msgHistory: [
-      {
-        text: '',
-        date: new Date('2022-07-07'),
-        time: '',
-        isRead: '',
-      },
-    ],
+    msgHistory: [],
   },
 ];
 
-export const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+export const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];

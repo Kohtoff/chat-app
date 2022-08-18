@@ -12,8 +12,10 @@
 
 
 
+
     & hr{
         width: 100%;
-        background-color: $non-active;
+        border: 0.5px solid $non-active;
+        margin: 0;
     }
 }

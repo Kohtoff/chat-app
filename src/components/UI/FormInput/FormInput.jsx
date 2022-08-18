@@ -1,22 +1,21 @@
 import React from 'react';
-import '../../../scss/input.scss';
+import '../../../scss/form-input.scss';
 import PropTypes from 'prop-types';
 
 export default function Input(props) {
-  const {size, placeholder, ...rest} = props
+  const { size, placeholder, ...rest } = props;
   return (
-    <div className={"input__container input__container--" + size}>
-      <input {...rest} className='input' placeholder=' '/>
-      <span className="input__floating-label">{placeholder}</span>
+    <div className={'form-input__container form-input__container--' + size}>
+      <input {...rest} className="form-input" placeholder=" " />
+      <span className="form-input__floating-label">{placeholder}</span>
     </div>
-  )
+  );
 }
 
 Input.propTypes = {
-  size: PropTypes.oneOf(['sm', 'mid', 'large', 'xl', 'fullWidth'])
-}
+  size: PropTypes.oneOf(['sm', 'mid', 'large', 'xl', 'fullWidth']),
+};
 
 Input.defaultProps = {
   size: 'fullWidth',
-
-}
+};

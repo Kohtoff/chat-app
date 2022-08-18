@@ -1,14 +1,14 @@
 import React from 'react';
-
-import '../../scss/aside-top-bar.scss';
-import SearchBar from './SearchBar';
 import UserBar from './UserBar';
+import '../../scss/aside-top-bar.scss';
+import SearchSvg from './SearchSvg';
+import TextField from '../UI/TextField/TextField';
 
 export default function AsideTopBar() {
   return (
     <div className="aside-top-bar">
       <UserBar />
-      <SearchBar />
+      <TextField placeholder={'Search or start new chat'} icon={<SearchSvg className="input__icon"/>}/>
     </div>
   );
 }

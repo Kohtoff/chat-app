@@ -7,10 +7,16 @@ import UserAvatar from '../UserCard/UserAvatar';
 import ConditionalWrapper from '../../utils/ConditionalWrapper';
 
 export default function ContactCard({ data: user, handleOnClick, mode }) {
-  const lastMessage = user.msgHistory[user.msgHistory.length - 1];
-  const msgDate = `${
-    months[lastMessage.date.getMonth() - 1]
-  } ${lastMessage.date.getDate()}, ${lastMessage.date.getFullYear()}`;
+  const lastMessage = user.msgHistory[user.msgHistory.length - 1] || null;
+
+  const msgDate = (function () {
+    if (!lastMessage) return;
+    return `${
+      months[lastMessage.date.getMonth() - 1]
+    } ${lastMessage.date.getDate()}, ${lastMessage.date.getFullYear()}`;
+  })();
+  
+  const isEmptyHistory = user.msgHistory.length > 0;
 
   return (
     <ConditionalWrapper
@@ -28,10 +34,10 @@ export default function ContactCard({ data: user, handleOnClick, mode }) {
             <>
               <div className="user-bar__top">
                 <span className="user-bar__username">{user.username}</span>
-                <span className="user-bar__date">{msgDate}</span>
+                {isEmptyHistory && <span className="user-bar__date">{msgDate}</span>}
               </div>
               <div className="user-bar__msg">
-                {user.msgHistory[0].text.length > 0 ? (
+                {isEmptyHistory ? (
                   <span>
                     {user.msgHistory[0].text}
                     {!lastMessage.isRead && <Badge mode={'new-msg'} />}

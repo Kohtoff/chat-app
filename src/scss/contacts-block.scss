@@ -1,6 +1,6 @@
 @import './vars.scss';
 
-.msg-block {
+.contacts-block {
 
 
   &__title {
@@ -16,4 +16,15 @@
     max-height: calc(100vh - 35vh);
     scroll-behavior: smooth;
   }
+
+  & .empty{
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
+
+
+
+

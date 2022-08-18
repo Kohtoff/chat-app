@@ -1,0 +1,85 @@
+@import './vars.scss';
+
+.msg {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 10px;
+
+  &--sended {
+    flex-direction: row-reverse;
+
+    & .msg__content{
+        align-items: flex-end   ;
+
+    }
+  }
+
+  &__content{
+    display: flex;
+    flex-direction: column;
+    // position: relative;
+  }
+
+  &__bubble {
+    border-radius: 20px;
+    padding: 15px;
+
+    &--sended {
+      background-color: $sendedMsg;
+    }
+
+    &--recieved {
+      color: $white;
+      background-color: $recievedMsg;
+    }
+  }
+
+  &__date{
+    font-size: $label;
+    color: $greyText;
+    margin-top: 10px;
+    position: absolute;
+    top: 50px;
+    z-index: 0;
+
+  }
+}
+
+// .msg-content{
+//     display: flex;
+//     flex-direction: column;
+// }
+
+// .msg-container {
+//   width: 100%;
+//   display: flex;
+//   align-items: center;
+//   flex-direction: row;
+//   gap: 5px;
+
+//   &--sended {
+//     flex-direction: row-reverse;
+
+//     & .msg-buble {
+//       background-color: $sendedMsg;
+//     }
+//   }
+
+//   &--recieved {
+//     & .msg-buble {
+//       color: $white;
+//       background-color: $recievedMsg;
+//     }
+//   }
+// }
+
+// .msg-buble {
+//   border-radius: 20px;
+//   padding: 15px;
+// }
+
+// .msg-date{
+//     font-size: $label;
+//     color: $greyText;
+// }
