@@ -1,26 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Message from '../Message/Message';
 import '../../scss/chat.scss';
-// import { useChat } from '../../hooks/useChat';
 
-export default function ChatField({ data }) {
-  const { messages, currentUser, contact } = data;
-  // const chat = useChat()
-  // const {msgList} = chat
+export default function ChatField(props) {
+  const { messages, currentUser, chat } = props;
 
-  // console.log(msgList);
-
+  // console.log("MESSAGES",messages);
 
   return (
     <div className="chat-field">
       {messages.length > 0 ? (
         messages
-          .map((msg) => (
-            <Message
-              data={{ message: msg, author: msg.isAuthor ? currentUser : contact }}
-              key={`${msg.isAuthor ? currentUser[0].uid : contact.id}${msg.date.getTime()}`}
-            />
-          ))
+          .map((msg) => {
+            console.log(msg);
+            return (
+              <Message
+                key={`${currentUser.id}-${chat.id}-${msg.date}`}
+                author={msg.isAuthor ? currentUser : chat}
+                message={msg}
+              />
+            );
+          })
           .reverse()
       ) : (
         <span>History of messaging is empty :(</span>

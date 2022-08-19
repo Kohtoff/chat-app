@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { contacts } from '../../data';
 import ChatField from './ChatField';
 import ChatTopBar from './ChatTopBar';
@@ -7,35 +7,40 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebaseConfig';
 
 export default function ChatContent({ chatId }) {
-  const chat = useMemo(() => contacts.find((contact) => contact.id === chatId), [chatId]);
-  const user = useAuthState(auth);
+  const [currentChat, setCurrentChat] = useState(contacts.find((contact) => contact.id === chatId));
+  const [messages, setMessages] = useState([]);
+  const user = useAuthState(auth)
 
-  const [msgList, setMsg] = useState([...chat.msgHistory])
-
-  const handleSendMsg = (text) => {
-    setMsg([...msgList, {
+  const handleSetMessages = (text) => {
+    console.log('messages!!!',messages);
+    setMessages([...messages, {
       text,
-      isRead: false,
       date: new Date(),
-      isAuthor: true,
+      isRead: false,
+      isAuthor: true
     }])
-  };
+  }
+
+  useEffect(() => {
+    setCurrentChat(contacts.find((contact) => contact.id === chatId));
+    setMessages(contacts.find((contact) => contact.id === chatId).msgHistory)
+  }, [chatId]);
+
 
   return (
     <div className="chat-content">
-
-        <>
-          <ChatTopBar chat={chat} />
-          <ChatField
-            messages={msgList}
-            data={{ currentUser: user, contact: chat, messages: msgList }}
-          />
-          <MessageInput
-            msgHistory={msgList}
-            handleOnSubmit={(text) => handleSendMsg(text)}
-          />
-        </>
-
+      <>
+        <ChatTopBar chat={currentChat} />
+        <ChatField
+          messages={messages}
+          chat={currentChat}
+          currentUser={user}
+        />
+        <MessageInput
+          msgHistory={messages}
+          handleOnSubmit={(text) => handleSetMessages(text)}
+        />
+      </>
     </div>
   );
 }

@@ -59,6 +59,7 @@ export const contacts = [
         text: 'Btw, is it dog?',
         date: new Date('2022-07-07T23:42:12'),
         isRead: false,
+        isAuthor: false
       },
 
     ],
