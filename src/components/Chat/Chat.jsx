@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useState } from 'react';
 import AsideBlock from '../AsideBlock/AsideBlock';
 import ChatContent from './ChatContent';
 import '../../scss/chat.scss';
