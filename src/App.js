@@ -1,6 +1,5 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.scss';
-import Page404 from './components/Page404/Page404';
 import { routesForRender } from './router/routesForRender';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './firebaseConfig';
@@ -31,7 +30,7 @@ function App() {
             <Route key={route.key} path={route.path} element={<route.element />} />
           ),
         )}
-        <Route path="*" element={<Page404 />} />
+        <Route path="*" element={<Navigate to={'/login'} />} />
       </Routes>
     </div>
   );

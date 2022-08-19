@@ -12,7 +12,11 @@ export default function Chat() {
       <SelectChatContext.Provider value={setActiveChat}>
         <AsideBlock />
       </SelectChatContext.Provider>
-      <ChatContent chatId={activeChat} />
+      {activeChat ? (
+        <ChatContent chatId={activeChat} />
+      ) : (
+        <h2 className="chat-content__select-chat">Select chat to start messaging</h2>
+      )}
     </main>
   );
 }

@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { months } from '../../data';
 import Divider from '../UI/Divider/Divider';
 import Badge from '../UI/Badge/Badge';
 import PropTypes from 'prop-types';
 import UserAvatar from '../UserCard/UserAvatar';
 import ConditionalWrapper from '../../utils/ConditionalWrapper';
+import { SelectChatContext } from '../Chat/Chat';
+
 
 export default function ContactCard({ data: user, handleOnClick, mode }) {
+  const selectChat = useContext(SelectChatContext);
+
   const lastMessage = user.msgHistory[user.msgHistory.length - 1] || null;
 
   const msgDate = (function () {
@@ -15,14 +19,18 @@ export default function ContactCard({ data: user, handleOnClick, mode }) {
       months[lastMessage.date.getMonth() - 1]
     } ${lastMessage.date.getDate()}, ${lastMessage.date.getFullYear()}`;
   })();
-  
+
+  const handleOnSelect = (id) => {
+    selectChat(id)
+    user.msgHistory.map(msg => msg.isRead = true)
+  }
   const isEmptyHistory = user.msgHistory.length > 0;
 
   return (
     <ConditionalWrapper
       condition={mode !== 'shorted'}
       wrapper={(children) => (
-        <li className="contact-item" onClick={() => handleOnClick(user.id)}>
+        <li className="contact-item" onClick={() => handleOnSelect(user.id)}>
           {children}
           <Divider />
         </li>
@@ -39,8 +47,8 @@ export default function ContactCard({ data: user, handleOnClick, mode }) {
               <div className="user-bar__msg">
                 {isEmptyHistory ? (
                   <span>
-                    {user.msgHistory[0].text}
-                    {!lastMessage.isRead && <Badge mode={'new-msg'} />}
+                    {lastMessage.text}
+                    {(!lastMessage.isRead && !lastMessage.isAuthor) && <Badge mode={'new-msg'} />}
                   </span>
                 ) : (
                   <span className="user-bar__empty-history">Empty history :(</span>

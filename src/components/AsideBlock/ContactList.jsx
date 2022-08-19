@@ -1,10 +1,8 @@
 import React, { useContext, useMemo } from 'react';
 import ContactCard from '../ContactCard/ContactCard';
-import { SelectChatContext } from '../Chat/Chat';
 import { ContactsListContext } from './AsideBlock';
 
 export default function ContactList() {
-  const SelectChat = useContext(SelectChatContext);
   const contacts = useContext(ContactsListContext)
 
   const sortedContactsByLastMessage = useMemo(() =>
@@ -26,7 +24,9 @@ export default function ContactList() {
       {contacts.length > 0 ?
 
       sortedContactsByLastMessage.map((contact) => (
-        <ContactCard handleOnClick={SelectChat} data={contact} key={contact.id} />
+        <ContactCard
+        // handleOnClick={SelectChat}
+         data={contact} key={contact.id} />
       )) : <span className='empty-message'>Contacts not found</span>}
     </ul>
   );
