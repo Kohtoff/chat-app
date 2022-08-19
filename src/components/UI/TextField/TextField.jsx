@@ -8,7 +8,6 @@ export default function TextField({ placeholder, icon, handleOnSubmit, mode }) {
   const searchContact = useContext(SearchContactContext);
 
   const handleOnInput = ({ target }) => {
-    console.log(mode);
     setValue(target.value);
     if (mode === 'search') {
       searchContact(target.value);
@@ -17,8 +16,8 @@ export default function TextField({ placeholder, icon, handleOnSubmit, mode }) {
 
   const handleSubmit = (e) => {
     if(mode === 'msg' && e.key === 'Enter'){
-      handleOnSubmit(value);
-      setValue(' ')
+      handleOnSubmit({text: value, date: new Date().toJSON(), isAuthor: true});
+      setValue('')
     }
   }
 

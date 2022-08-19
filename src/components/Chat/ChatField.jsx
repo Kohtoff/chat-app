@@ -1,22 +1,25 @@
 import React from 'react';
 import Message from '../Message/Message';
 import '../../scss/chat.scss';
+import { useChat } from '../../hooks/useChat';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebaseConfig';
 
 export default function ChatField(props) {
-  const { messages, currentUser, chat } = props;
+  const [{ reloadUserInfo: user }] = useAuthState(auth);
+  const {activeChat} = useChat();
+  const messages = activeChat.msgHistory
 
-  // console.log("MESSAGES",messages);
 
   return (
     <div className="chat-field">
       {messages.length > 0 ? (
         messages
           .map((msg) => {
-            console.log(msg);
             return (
               <Message
-                key={`${currentUser.id}-${chat.id}-${msg.date}`}
-                author={msg.isAuthor ? currentUser : chat}
+                key={`${user.id}-${activeChat.id}-${msg.date}`}
+                author={msg.isAuthor ? user : activeChat}
                 message={msg}
               />
             );

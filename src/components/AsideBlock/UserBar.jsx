@@ -3,7 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebaseConfig';
 import UserAvatarByDefault from './UserAvatarByDefault';
 import '../../scss/user-bar.scss'
-
+  
 export default function UserBar() {
   const [{ reloadUserInfo: user }] = useAuthState(auth);
 

@@ -1,28 +1,37 @@
-import React, {useContext} from 'react';
+import React from 'react';
+// {useContext}
 import { months } from '../../data';
 import Divider from '../UI/Divider/Divider';
 import Badge from '../UI/Badge/Badge';
 import PropTypes from 'prop-types';
 import UserAvatar from '../UserCard/UserAvatar';
 import ConditionalWrapper from '../../utils/ConditionalWrapper';
-import { SelectChatContext } from '../Chat/Chat';
+// import { SelectChatContext } from '../Chat/Chat';
+// import { useChat } from '../../hooks/useChat';
+import {useDispatch} from 'react-redux'
+import { setActiveChat, toggleMsgRead } from '../../ducks/chat.duck';
 
 
-export default function ContactCard({ data: user, handleOnClick, mode }) {
-  const selectChat = useContext(SelectChatContext);
+export default function ContactCard({ data: user, mode }) {
+  // const chat = useChat()
+  const dispatch = useDispatch()
+  // const selectChat = useContext(SelectChatContext);
+
 
   const lastMessage = user.msgHistory[user.msgHistory.length - 1] || null;
 
   const msgDate = (function () {
     if (!lastMessage) return;
+    const formatedData = new Date(lastMessage.date)
     return `${
-      months[lastMessage.date.getMonth() - 1]
-    } ${lastMessage.date.getDate()}, ${lastMessage.date.getFullYear()}`;
+      months[formatedData.getMonth() - 1]
+    } ${formatedData.getDate()}, ${formatedData.getFullYear()}`;
   })();
 
   const handleOnSelect = (id) => {
-    selectChat(id)
-    user.msgHistory.map(msg => msg.isRead = true)
+    // selectChat(id)
+    dispatch(setActiveChat({id}))
+    dispatch(toggleMsgRead({chatId: id}))
   }
   const isEmptyHistory = user.msgHistory.length > 0;
 
@@ -36,7 +45,7 @@ export default function ContactCard({ data: user, handleOnClick, mode }) {
         </li>
       )}>
       <div className="user-bar">
-        <UserAvatar photo={user.avatar()} />
+        <UserAvatar photo={user.avatar} />
         <div className="user-bar__info">
           {mode !== 'shorted' ? (
             <>
@@ -48,7 +57,7 @@ export default function ContactCard({ data: user, handleOnClick, mode }) {
                 {isEmptyHistory ? (
                   <span>
                     {lastMessage.text}
-                    {(!lastMessage.isRead && !lastMessage.isAuthor) && <Badge mode={'new-msg'} />}
+                    {(!user.isRead && !lastMessage.isAuthor) && <Badge mode={'new-msg'} />}
                   </span>
                 ) : (
                   <span className="user-bar__empty-history">Empty history :(</span>
