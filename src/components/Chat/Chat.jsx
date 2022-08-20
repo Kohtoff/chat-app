@@ -8,15 +8,16 @@ export const SelectChatContext = createContext();
 
 export default function Chat() {
   const chat = useChat();
-  const { activeChat, contacts } = chat;
+  const { activeChat } = chat;
 
   return (
     <main className="chat">
       <AsideBlock />
       {activeChat ? (
-        <ChatContent chatId={activeChat} contacts={contacts} />
+        <ChatContent activeChat={activeChat}
+         />
       ) : (
-        <h2 className="chat-content__select-chat">Select chat to start messaging</h2>
+        <h2 className="chat__select-chat">Select chat to start messaging</h2>
       )}
     </main>
   );

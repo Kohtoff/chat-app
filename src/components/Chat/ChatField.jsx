@@ -7,8 +7,11 @@ import { auth } from '../../firebaseConfig';
 
 export default function ChatField(props) {
   const [{ reloadUserInfo: user }] = useAuthState(auth);
-  const {activeChat} = useChat();
-  const messages = activeChat.msgHistory
+  // const {activeChat} = props
+  const {contacts, activeChat} = useChat();
+  const currentChatIndex = activeChat ? contacts.findIndex(contact => activeChat.id === contact.id) : null
+  console.log(contacts[currentChatIndex], currentChatIndex);
+  const messages = contacts[currentChatIndex].msgHistory ? contacts[currentChatIndex].msgHistory : 0
 
 
   return (

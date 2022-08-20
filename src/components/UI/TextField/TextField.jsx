@@ -10,6 +10,7 @@ export default function TextField({ placeholder, icon, handleOnSubmit, mode }) {
   const handleOnInput = ({ target }) => {
     setValue(target.value);
     if (mode === 'search') {
+      console.log('here');
       searchContact(target.value);
     }
   };

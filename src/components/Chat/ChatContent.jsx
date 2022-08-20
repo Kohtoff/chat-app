@@ -3,7 +3,7 @@ import ChatField from './ChatField';
 import ChatTopBar from './ChatTopBar';
 import MessageInput from '../MessageInput/MessageInput';
 
-export default function ChatContent({ chatId, contacts }) {
+export default function ChatContent() {
   return (
     <div className="chat-content">
       <>

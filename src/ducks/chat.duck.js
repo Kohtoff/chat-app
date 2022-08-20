@@ -5,6 +5,7 @@ const initialState = {
   activeChat: null,
   contacts: contacts,
   searchValue: '',
+  filteredContacts: contacts
 };
 
 const chatSlice = createSlice({
@@ -16,12 +17,12 @@ const chatSlice = createSlice({
     },
 
     filterContacts: (state, { payload }) => {
-      if (payload.searchValue.length > 0) {
-        state.contacts = initialState.contacts.filter((contact) =>
+      if (payload.searchValue.length >= 0) {
+        state.filteredContacts = state.contacts.filter((contact) =>
           contact.username.toLowerCase().includes(payload.searchValue.toLocaleLowerCase()),
         );
       } else {
-        state.contacts = initialState.contacts;
+        state.filteredContacts = state.contacts;
       }
     },
 
@@ -31,7 +32,10 @@ const chatSlice = createSlice({
     },
 
     sendMsg: (state, { payload }) => {
-      state.activeChat.msgHistory.push({ ...payload });
+      //must be pushed to state.contacts (maybee i can do it like with toggle msg read)
+      const targetChat = state.contacts.findIndex((contact) => contact.id === state.activeChat.id);
+      state.contacts[targetChat] = { ...state.contacts[targetChat], msgHistory: [...state.contacts[targetChat].msgHistory, payload]}
+      state.filteredContacts = state.contacts;
     },
   },
 });
