@@ -7,19 +7,21 @@
   height: 100%;
   position: relative;
 
-  &__select-chat {
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    text-align: center;
+  &__empty-field{
+    flex-grow: 7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
+
 }
 
 .chat-content {
-  width: 100%;
+  // width: 100%;
   display: flex;
   flex-direction: column;
+  flex-grow: 5;
 
 }
 

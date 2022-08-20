@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import '../../../scss/textfield.scss';
 import { SearchContactContext } from '../../AsideBlock/AsideBlock';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 export default function TextField({ placeholder, icon, handleOnSubmit, mode }) {
   const [value, setValue] = useState('');
@@ -16,11 +17,19 @@ export default function TextField({ placeholder, icon, handleOnSubmit, mode }) {
   };
 
   const handleSubmit = (e) => {
-    if(mode === 'msg' && e.key === 'Enter'){
-      handleOnSubmit({text: value, date: new Date().toJSON(), isAuthor: true});
-      setValue('')
+    if (mode === 'msg' && e.key === 'Enter') {
+      handleOnSubmit({ text: value, date: new Date().toJSON(), isAuthor: true });
+      setValue('');
+      setTimeout(
+        () =>
+          axios
+            .get('https://api.chucknorris.io/jokes/random')
+            .then(({ data }) => ({ text: data.value, date: new Date().toJSON(), isAuthor: false }))
+            .then((payload) => handleOnSubmit(payload)),
+        10000,
+      );
     }
-  }
+  };
 
   return (
     <div className="input">
@@ -38,8 +47,8 @@ export default function TextField({ placeholder, icon, handleOnSubmit, mode }) {
 }
 
 TextField.propTypes = {
-  mode: PropTypes.oneOf(['search', 'msg'])
-}
+  mode: PropTypes.oneOf(['search', 'msg']),
+};
 
 TextField.defaultProps = {
   mode: 'msg',

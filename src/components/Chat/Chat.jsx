@@ -14,10 +14,11 @@ export default function Chat() {
     <main className="chat">
       <AsideBlock />
       {activeChat ? (
-        <ChatContent activeChat={activeChat}
-         />
+        <ChatContent activeChat={activeChat} />
       ) : (
-        <h2 className="chat__select-chat">Select chat to start messaging</h2>
+        <div className='chat__empty-field'>
+          <h2 className="chat__select-chat">Select chat to start messaging</h2>
+        </div>
       )}
     </main>
   );

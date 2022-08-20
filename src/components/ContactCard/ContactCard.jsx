@@ -1,21 +1,16 @@
 import React from 'react';
-// {useContext}
 import { months } from '../../data';
 import Divider from '../UI/Divider/Divider';
 import Badge from '../UI/Badge/Badge';
 import PropTypes from 'prop-types';
 import UserAvatar from '../UserCard/UserAvatar';
 import ConditionalWrapper from '../../utils/ConditionalWrapper';
-// import { SelectChatContext } from '../Chat/Chat';
-// import { useChat } from '../../hooks/useChat';
 import {useDispatch} from 'react-redux'
 import { setActiveChat, toggleMsgRead } from '../../ducks/chat.duck';
 
 
 export default function ContactCard({ data: user, mode }) {
-  // const chat = useChat()
   const dispatch = useDispatch()
-  // const selectChat = useContext(SelectChatContext);
 
 
   const lastMessage = user.msgHistory[user.msgHistory.length - 1] || null;
@@ -29,7 +24,6 @@ export default function ContactCard({ data: user, mode }) {
   })();
 
   const handleOnSelect = (id) => {
-    // selectChat(id)
     dispatch(setActiveChat({id}))
     dispatch(toggleMsgRead({chatId: id}))
   }

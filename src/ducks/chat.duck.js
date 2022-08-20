@@ -32,9 +32,8 @@ const chatSlice = createSlice({
     },
 
     sendMsg: (state, { payload }) => {
-      //must be pushed to state.contacts (maybee i can do it like with toggle msg read)
-      const targetChat = state.contacts.findIndex((contact) => contact.id === state.activeChat.id);
-      state.contacts[targetChat] = { ...state.contacts[targetChat], msgHistory: [...state.contacts[targetChat].msgHistory, payload]}
+      const targetChat = state.contacts.findIndex((contact) => contact.id === payload.chatId);
+      state.contacts[targetChat] = { ...state.contacts[targetChat], msgHistory: [...state.contacts[targetChat].msgHistory, payload.msg], isRead: false}
       state.filteredContacts = state.contacts;
     },
   },
