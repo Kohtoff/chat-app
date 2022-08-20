@@ -1,16 +1,17 @@
 @import './vars.scss';
 
-aside{
-    width: 40%;
-    max-height: 100vh;
-    overflow: hidden;
-    border-right: 1px solid $div;
-    flex-grow: 1;
-    // max-width: 500px;
+aside {
+  max-height: 100vh;
+  overflow: hidden;
+  border-right: 1px solid $div;
+//   min-width: 400px;
 
-    // @media (max-width: 1140px) {
-    //     width: 50%;
-    // }
+  @media (min-width: 925px) {
+    min-width: 400px;
+  }
 
-
+  @media (max-width: 925px) {
+    width: 100%;
+    max-width: 400px;
+  }
 }

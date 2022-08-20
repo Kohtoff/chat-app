@@ -24,7 +24,12 @@
   width: 100%;
   height: 85px;
   padding: 15px;
-  max-width: 400px;
+  position: relative;
+
+  @media (min-width: 925px) {
+
+    max-width: 400px;
+  }
 
 
   &__avatar {
@@ -44,10 +49,25 @@
     font-size: $floated-label;
   }
 
+  &__logout-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+
+    & svg{
+      width: 24px;
+    height: 24px;
+    }
+  }
+
   &__info {
     display: flex;
     flex-direction: column;
     width: 100%;
+    overflow: hidden;
   }
 
   &__top {
@@ -64,15 +84,18 @@
     margin-top: 5px;
     white-space: nowrap;
     word-break: unset;
-    word-spacing: 1p;
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   &__msg span {
+    max-width: inherit;
     color: $greyText;
     font-size: $regular;
     font-weight: 100;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__msg &__empty-history {

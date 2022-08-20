@@ -33,7 +33,7 @@ const chatSlice = createSlice({
 
     sendMsg: (state, { payload }) => {
       const targetChat = state.contacts.findIndex((contact) => contact.id === payload.chatId);
-      state.contacts[targetChat] = { ...state.contacts[targetChat], msgHistory: [...state.contacts[targetChat].msgHistory, payload.msg], isRead: false}
+      state.contacts[targetChat] = { ...state.contacts[targetChat], msgHistory: [...state.contacts[targetChat].msgHistory, payload.msg], isRead: state.activeChat.id === payload.chatId}
       state.filteredContacts = state.contacts;
     },
   },

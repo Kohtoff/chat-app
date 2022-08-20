@@ -1,5 +1,9 @@
 @import './vars.scss';
 
+::-webkit-scrollbar{
+  width: 0px;
+}
+
 .contacts-block {
 
 
@@ -14,9 +18,12 @@
     overflow: auto;
     //TEMP SOLUTION
     max-height: calc(100vh - 35vh);
-    scroll-behavior: smooth;
 
-    
+    // width: 20vw;
+   
+
+
+
   }
 
   & .empty{
