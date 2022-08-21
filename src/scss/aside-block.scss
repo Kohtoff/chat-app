@@ -4,14 +4,19 @@ aside {
   max-height: 100vh;
   overflow: hidden;
   border-right: 1px solid $div;
-//   min-width: 400px;
 
   @media (min-width: 925px) {
     min-width: 400px;
   }
 
   @media (max-width: 925px) {
-    width: 100%;
     max-width: 400px;
   }
+
+  @media (max-width: 768px) {
+    max-width: unset;
+    width: 100%;
+  }
+
+
 }

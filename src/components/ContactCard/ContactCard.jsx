@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { months } from '../../data';
 import Divider from '../UI/Divider/Divider';
 import Badge from '../UI/Badge/Badge';
@@ -7,10 +7,12 @@ import UserAvatar from '../UserCard/UserAvatar';
 import ConditionalWrapper from '../../utils/ConditionalWrapper';
 import {useDispatch} from 'react-redux'
 import { setActiveChat, toggleMsgRead } from '../../ducks/chat.duck';
+import { AsideVisabilityContext } from '../Chat/Chat';
 
 
 export default function ContactCard({ data: user, mode }) {
   const dispatch = useDispatch()
+  const {width, toggleShowAsideBlock} = useContext(AsideVisabilityContext)
 
 
   const lastMessage = user.msgHistory[user.msgHistory.length - 1] || null;
@@ -26,6 +28,10 @@ export default function ContactCard({ data: user, mode }) {
   const handleOnSelect = (id) => {
     dispatch(setActiveChat({id}))
     dispatch(toggleMsgRead({chatId: id}))
+    if(width < 768){
+      toggleShowAsideBlock(false)
+    }
+
   }
   const isEmptyHistory = user.msgHistory.length > 0;
 

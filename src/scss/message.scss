@@ -6,6 +6,12 @@
   position: relative;
   gap: 10px;
 
+  & .user-bar__avatar {
+    @media (max-width: 375px) {
+      display: none;
+    }
+  }
+
   &--sended {
     flex-direction: row-reverse;
 
@@ -18,6 +24,10 @@
     display: flex;
     flex-direction: column;
     max-width: 50%;
+
+    @media (max-width: 375px) {
+      max-width: 60%;
+    }
   }
 
   &__bubble {
@@ -25,8 +35,13 @@
     border-radius: 20px;
     padding: 15px;
     max-width: 900px;
-    word-break: break-all;
+    word-break: break-word;
     line-height: 1.5;
+
+    @media (max-width: 375px) {
+      line-height: 1.2;
+      font-size: $label;
+    }
 
     &--sended {
       background-color: $sendedMsg;
@@ -44,5 +59,9 @@
     margin-top: 10px;
     position: relative;
     z-index: 0;
+
+    @media (max-width: 375px) {
+      font-size: $floated-label;
+    }
   }
 }

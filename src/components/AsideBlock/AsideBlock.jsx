@@ -16,6 +16,7 @@ export default function AsideBlock() {
   const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
+    console.log('CALL ASIDE BLOCK');
     dispatch(filterContacts({searchValue}))
   }, [searchValue, dispatch]);
 

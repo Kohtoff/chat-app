@@ -42,4 +42,16 @@
   background-color: $div;
   height: 80px;
   border-bottom: 1px solid $non-active;
+
+  &__aside-toggler{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    fill: $altTitle;
+
+    & svg{
+      width: 32px;
+      height: 32px;
+    }
+  }
 }
