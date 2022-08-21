@@ -17,7 +17,7 @@ export default function MessageInput({msgHistory, handleOnSubmit}) {
     <>
       <Divider />
       <div className="msg-input__container">
-        <TextField placeholder={'Type your message'} handleOnSubmit={(msg) => dispatch(sendMsg({chatId: activeChat.id, msg}))} />
+        <TextField mode={'msg'} placeholder={'Type your message'} handleOnSubmit={(msg) => dispatch(sendMsg({chatId: activeChat.id, msg}))} />
       </div>
     </>
   );

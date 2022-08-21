@@ -3,6 +3,8 @@ import '../../../scss/textfield.scss';
 import { SearchContactContext } from '../../AsideBlock/AsideBlock';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import SearchSvg from '../../AsideBlock/SearchSvg';
+import SendSVG from './SendSVG';
 
 export default function TextField({ placeholder, icon, handleOnSubmit, mode }) {
   const [value, setValue] = useState('');
@@ -17,7 +19,8 @@ export default function TextField({ placeholder, icon, handleOnSubmit, mode }) {
   };
 
   const handleSubmit = (e) => {
-    if (mode === 'msg' && e.key === 'Enter') {
+    console.log(e);
+    if (mode === 'msg' && (e.key === 'Enter' || e.type === 'click')) {
       handleOnSubmit({ text: value, date: new Date().toJSON(), isAuthor: true });
       setValue('');
       setTimeout(
@@ -42,6 +45,7 @@ export default function TextField({ placeholder, icon, handleOnSubmit, mode }) {
         className="input__textfield"
         placeholder={placeholder}
       />
+      {mode === 'msg' && <button className='input__send-btn' onClick={(e) => handleSubmit(e)}><SendSVG /></button>}
     </div>
   );
 }
