@@ -65,3 +65,12 @@
     font-size: large;
   }
 }
+
+.tooltip{
+  position: absolute;
+  padding: 10px 5px;
+  color: $white;
+  left: 50%;
+  background-color: rgba($color: #000000, $alpha: .7);
+  border-radius: 15px;
+}

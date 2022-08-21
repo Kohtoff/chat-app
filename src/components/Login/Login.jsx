@@ -32,9 +32,9 @@ export default function Login() {
         </div>
         <Input type="text" placeholder="username" className="login-form__field" />
         <Input type="password" placeholder="password" className="login-form__field" />
-        <div className="login-form__btn-container">
+        <div className="login-form__btn-container" >
           <StringButton>Forgot password?</StringButton>
-          <FilledBtn>Sign in</FilledBtn>
+          <FilledBtn disabled={true}>Sign in</FilledBtn>
         </div>
       </form>
       <Divider>or</Divider>
