@@ -3,7 +3,6 @@ import '../../../scss/textfield.scss';
 import { SearchContactContext } from '../../AsideBlock/AsideBlock';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import SearchSvg from '../../AsideBlock/SearchSvg';
 import SendSVG from './SendSVG';
 
 export default function TextField({ placeholder, icon, handleOnSubmit, mode }) {
