@@ -1,15 +1,12 @@
 @font-face {
   font-family: 'Kanit';
-  src: local('Kanit'),
-    url('../public/fonts/Kanit/Kanit-Light.ttf')
-    format('truetype');
+  src: local('Kanit'), url('../public/fonts/Kanit/Kanit-Light.ttf') format('truetype');
 }
 
 body {
   margin: 0;
-  font-family: 'Kanit', 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+  font-family: 'Kanit', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
   letter-spacing: 1px;
   font-weight: 0;
 
@@ -18,6 +15,5 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

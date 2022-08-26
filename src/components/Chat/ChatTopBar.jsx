@@ -14,7 +14,7 @@ export default function ChatTopBar() {
 
   const handleToggleAsideBlock = () => {
     toggleShowAsideBlock(!isShowAsideBlock);
-    if (width < 768) {
+    if (width <= 768) {
       dispatch(resetActiveChat());
     }
   };

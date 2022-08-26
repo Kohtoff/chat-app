@@ -1,13 +1,3 @@
-// import {configureStore} from '@reduxjs/toolkit'
-// import chatReducer from '../ducks/chat.duck'
-
-// export const store = configureStore({
-//     reducer: {
-//         chat: chatReducer,
-//     },
-//     devTools: true
-// })
-
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import chatReducer from '../ducks/chat.duck';
 import storage from 'redux-persist/lib/storage';

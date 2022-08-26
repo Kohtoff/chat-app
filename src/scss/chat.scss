@@ -7,31 +7,27 @@
   height: 100%;
   position: relative;
 
-  &__empty-field{
+  &__empty-field {
     flex-grow: 7;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
-
 }
 
 .chat-content {
-  // width: 100%;
   display: flex;
   flex-direction: column;
   flex-grow: 5;
-
 }
 
-.chat-field{
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column-reverse;
-    padding: 15px;
-    overflow: auto  ;
-    gap: 15px;
+.chat-field {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 15px;
+  overflow: auto;
+  gap: 15px;
 }
 
 .chat-top-bar {
@@ -43,13 +39,13 @@
   height: 80px;
   border-bottom: 1px solid $non-active;
 
-  &__aside-toggler{
+  &__aside-toggler {
     background-color: transparent;
     border: none;
     cursor: pointer;
     fill: $altTitle;
 
-    & svg{
+    & svg {
       width: 32px;
       height: 32px;
     }

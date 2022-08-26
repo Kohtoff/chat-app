@@ -1,28 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import '../../../scss/filled-btn.scss';
 
 export default function FilledBtn(props) {
-  const { children, mode, size, disabled } = props;
-  const [showTooltip, setShowTooltip] = useState(false);
+  const { children, mode, size } = props;
 
   return (
-    <div onMouseEnter={() => setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
-      <button
-        disabled={disabled}
-        className={'filled-btn filled-btn--' + mode + ' filled-btn--' + size}>
+    <>
+      <button className={'filled-btn filled-btn--' + mode + ' filled-btn--' + size} {...props}>
         {children}
       </button>
-      {showTooltip && <span className="tooltip">Under Development</span>}
-    </div>
+    </>
   );
 }
 
 FilledBtn.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string]).isRequired,
   mode: PropTypes.oneOf(['positive', 'negative', 'warning']),
-  size: PropTypes.oneOf(['sm', 'mid', 'large', 'xl', 'fullWidth']),
+  size: PropTypes.oneOf(['sm', 'mid', 'large', 'xl', 'full-width']),
 };
 
 FilledBtn.defaultProps = {

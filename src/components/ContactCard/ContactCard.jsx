@@ -3,36 +3,33 @@ import { months } from '../../data';
 import Divider from '../UI/Divider/Divider';
 import Badge from '../UI/Badge/Badge';
 import PropTypes from 'prop-types';
-import UserAvatar from '../UserCard/UserAvatar';
+import UserAvatar from '../UserAvatar/UserAvatar';
 import ConditionalWrapper from '../../utils/ConditionalWrapper';
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux';
 import { setActiveChat, toggleMsgRead } from '../../ducks/chat.duck';
 import { AsideVisabilityContext } from '../Chat/Chat';
 
-
 export default function ContactCard({ data: user, mode }) {
-  const dispatch = useDispatch()
-  const {width, toggleShowAsideBlock} = useContext(AsideVisabilityContext)
-
+  const dispatch = useDispatch();
+  const { width, toggleShowAsideBlock } = useContext(AsideVisabilityContext);
 
   const lastMessage = user.msgHistory[user.msgHistory.length - 1] || null;
 
   const msgDate = (function () {
     if (!lastMessage) return;
-    const formatedData = new Date(lastMessage.date)
+    const formatedData = new Date(lastMessage.date);
     return `${
       months[formatedData.getMonth() - 1]
     } ${formatedData.getDate()}, ${formatedData.getFullYear()}`;
   })();
 
   const handleOnSelect = (id) => {
-    dispatch(setActiveChat({id}))
-    dispatch(toggleMsgRead({chatId: id}))
-    if(width < 768){
-      toggleShowAsideBlock(false)
+    dispatch(setActiveChat({ id }));
+    dispatch(toggleMsgRead({ chatId: id }));
+    if (width <= 768) {
+      toggleShowAsideBlock(false);
     }
-
-  }
+  };
   const isEmptyHistory = user.msgHistory.length > 0;
 
   return (
@@ -57,7 +54,7 @@ export default function ContactCard({ data: user, mode }) {
                 {isEmptyHistory ? (
                   <span>
                     {lastMessage.text}
-                    {(!user.isRead && !lastMessage.isAuthor) && <Badge mode={'new-msg'} />}
+                    {!user.isRead && !lastMessage.isAuthor && <Badge mode={'new-msg'} />}
                   </span>
                 ) : (
                   <span className="user-bar__empty-history">Empty history :(</span>

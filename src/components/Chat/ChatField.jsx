@@ -5,13 +5,15 @@ import { useChat } from '../../hooks/useChat';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebaseConfig';
 
-export default function ChatField(props) {
+export default function ChatField() {
   const [{ reloadUserInfo: user }] = useAuthState(auth);
-  // const {activeChat} = props
-  const {contacts, activeChat} = useChat();
-  const currentChatIndex = activeChat ? contacts.findIndex(contact => activeChat.id === contact.id) : null
-  const messages = contacts[currentChatIndex].msgHistory ? contacts[currentChatIndex].msgHistory : 0
-
+  const { contacts, activeChat } = useChat();
+  const currentChatIndex = activeChat
+    ? contacts.findIndex((contact) => activeChat.id === contact.id)
+    : null;
+  const messages = contacts[currentChatIndex].msgHistory
+    ? contacts[currentChatIndex].msgHistory
+    : 0;
 
   return (
     <div className="chat-field">

@@ -5,24 +5,22 @@
 */
 
 export const routesKeys = {
-    login: 'login',
-    chat: 'chat',
-    chatWith: 'chatWith'
-}
+  login: 'login',
+  chat: 'chat',
+  chatWith: 'chatWith',
+};
 
 export const routesConfig = [
-    {
-        key: routesKeys.login,
-        path: '/login',
-        title: 'Login',
-        isPrivate: false
-    },
-    {
-        key: routesKeys.chat,
-        path: '/chat',
-        title: 'Chat',
-        isPrivate: true
-    },
-]
-
-
+  {
+    key: routesKeys.login,
+    path: '/login',
+    title: 'Login',
+    isPrivate: false,
+  },
+  {
+    key: routesKeys.chat,
+    path: '/chat',
+    title: 'Chat',
+    isPrivate: true,
+  },
+];

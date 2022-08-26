@@ -1,14 +1,14 @@
 @import './vars.scss';
 
-.string-btn{
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: $link;
-    transition: .2s ease-in-out all;
+.string-btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: $link;
+  transition: 0.2s ease-in-out all;
 
-    &:hover{
-        color: $hoveredLink;
-        cursor: pointer;
-    }
+  &:hover {
+    color: $hoveredLink;
+    cursor: pointer;
+  }
 }

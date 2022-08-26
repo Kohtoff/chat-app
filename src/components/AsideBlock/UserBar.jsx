@@ -17,7 +17,7 @@ export default function UserBar({ icon }) {
       <div className="user-bar__avatar">
         {user.photoUrl ? <img src={user.photoUrl} alt="avatar" /> : <UserAvatarByDefault />}
       </div>
-      <span className="user-bar__username">{user.displayName}</span>
+      <span className="user-bar__username">{user.displayName || user.email}</span>
       {icon && (
         <button className="user-bar__logout-btn" onClick={logout}>
           {icon}

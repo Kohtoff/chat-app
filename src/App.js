@@ -9,8 +9,8 @@ import LoadingSpinner from './components/UI/LoadingSpinner/LoadingSpinner';
 function App() {
   const [user, loading] = useAuthState(auth);
 
-  if(loading){
-    return <LoadingSpinner />
+  if (loading) {
+    return <LoadingSpinner />;
   }
   return (
     <div className="App">

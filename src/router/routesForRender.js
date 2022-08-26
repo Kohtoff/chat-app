@@ -9,6 +9,8 @@ const renderMap = {
   [routesKeys.login]: Login,
 };
 
-
 //merger of routesConfig and relevant components
-export const routesForRender = routesConfig.map(route => ({...route, element: renderMap[route.key]}))
+export const routesForRender = routesConfig.map((route) => ({
+  ...route,
+  element: renderMap[route.key],
+}));

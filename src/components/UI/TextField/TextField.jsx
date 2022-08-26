@@ -12,13 +12,11 @@ export default function TextField({ placeholder, icon, handleOnSubmit, mode }) {
   const handleOnInput = ({ target }) => {
     setValue(target.value);
     if (mode === 'search') {
-      console.log('here');
       searchContact(target.value);
     }
   };
 
   const handleSubmit = (e) => {
-    console.log(e);
     if (mode === 'msg' && (e.key === 'Enter' || e.type === 'click')) {
       handleOnSubmit({ text: value, date: new Date().toJSON(), isAuthor: true });
       setValue('');
@@ -44,7 +42,11 @@ export default function TextField({ placeholder, icon, handleOnSubmit, mode }) {
         className="input__textfield"
         placeholder={placeholder}
       />
-      {mode === 'msg' && <button className='input__send-btn' onClick={(e) => handleSubmit(e)}><SendSVG /></button>}
+      {mode === 'msg' && (
+        <button className="input__send-btn" onClick={(e) => handleSubmit(e)}>
+          <SendSVG />
+        </button>
+      )}
     </div>
   );
 }

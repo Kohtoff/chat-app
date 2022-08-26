@@ -9,13 +9,12 @@
   position: relative;
   cursor: pointer;
 
-  &--facebook{
+  &--facebook {
     background-color: #3064a0;
   }
 
-  &--gmail{
+  &--gmail {
     background-color: #c84b49;
-
   }
 
   &__svg-container {
@@ -45,13 +44,19 @@
     white-space: nowrap;
   }
 
-  &:hover {
-    & span {
-      left: 50%;
-      opacity: 1;
-    }
-    & svg {
-      margin-left: -75%;
+  @media (min-width: 375px) {
+    &:hover {
+      & span {
+        left: 50%;
+        opacity: 1;
+
+        @media (max-width: 500px) {
+          left: 30%;
+        }
+      }
+      & svg {
+        margin-left: -75%;
+      }
     }
   }
 }

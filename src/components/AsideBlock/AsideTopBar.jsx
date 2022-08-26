@@ -9,7 +9,11 @@ export default function AsideTopBar() {
   return (
     <div className="aside-top-bar">
       <UserBar icon={<LogoutSVG />} />
-      <TextField placeholder={'Search or start new chat'} mode={'search'} icon={<SearchSvg className="input__icon"/>}/>
+      <TextField
+        placeholder={'Search or start new chat'}
+        mode={'search'}
+        icon={<SearchSvg className="input__icon" />}
+      />
     </div>
   );
 }

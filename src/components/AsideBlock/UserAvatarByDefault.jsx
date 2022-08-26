@@ -9,8 +9,7 @@ export default function UserAvatarByDefault() {
       version="1.1"
       viewBox="0 0 50 50"
       width="50px"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+      xmlns="http://www.w3.org/2000/svg">
       <circle
         cx="25"
         cy="25"

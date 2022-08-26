@@ -1,4 +1,4 @@
-import {useSelector} from 'react-redux'
-import { selectChatSlice } from '../ducks/chat.duck'
+import { useSelector } from 'react-redux';
+import { selectChatSlice } from '../ducks/chat.duck';
 
-export const useChat = () => useSelector(selectChatSlice)
+export const useChat = () => useSelector(selectChatSlice);

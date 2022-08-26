@@ -1,5 +1,5 @@
 import React from 'react';
-import UserAvatar from '../UserCard/UserAvatar';
+import UserAvatar from '../UserAvatar/UserAvatar';
 import '../../scss/message.scss';
 
 export default function Message(props) {
@@ -12,9 +12,7 @@ export default function Message(props) {
 
   return (
     <div className={`msg msg--${message.isAuthor ? 'sended' : 'recieved'}`}>
-      {!message.isAuthor && (
-        <UserAvatar photo={author.avatar} />
-      )}
+      {!message.isAuthor && <UserAvatar photo={author.avatar} />}
       <div className={`msg__content`}>
         <div className={`msg__bubble msg__bubble--${message.isAuthor ? 'sended' : 'recieved'}`}>
           {message.text}

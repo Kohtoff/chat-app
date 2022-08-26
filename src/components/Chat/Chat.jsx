@@ -15,7 +15,7 @@ export default function Chat() {
 
   const isDesktop = width > 1024;
   const isLaptop = width <= 1024 && width > 768;
-  const isTablet = width < 768;
+  const isTablet = width <= 768;
 
   const updateDimensions = () => {
     const width = window.innerWidth;
@@ -53,10 +53,10 @@ export default function Chat() {
             //if user has an active chat than render ChatContent
             activeChat ? (
               <ChatContent activeChat={activeChat} />
-              /*else if user hasn`t active chat and window width is equal to width of laptop window or
+            ) : /*else if user hasn`t active chat and window width is equal to width of laptop window or
                 desktop window than render message
                 else do not render anyting*/
-            ) : isLaptop || isDesktop ? (
+            isLaptop || isDesktop ? (
               <div className="chat__empty-field">
                 <h2 className="chat__select-chat">Select chat to start messaging</h2>
               </div>
